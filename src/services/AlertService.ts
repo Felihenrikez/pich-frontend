@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_BASE_URL } from '../config/api';
 import type { Alert } from "../models/Alert";
 import { AuthService } from "./AuthService";
 
@@ -9,7 +10,7 @@ export const AlertService = {
       const token = AuthService.getToken();
       console.log('AlertService: Using token:', token ? 'Token exists' : 'No token found');
       
-      const url = `http://localhost:3000/api/alerts/recipient/${userId}`;
+      const url = `${API_BASE_URL}/alerts/recipient/${userId}`;
       console.log('AlertService: Making GET request to:', url);
       
       const response = await axios.get(url, {
@@ -41,7 +42,7 @@ export const AlertService = {
       const token = AuthService.getToken();
       console.log('AlertService: Using token:', token ? 'Token exists' : 'No token found');
       
-      const url = `http://localhost:3000/api/alerts/${alertId}`;
+      const url = `${API_BASE_URL}/alerts/${alertId}`;
       console.log('AlertService: Making PUT request to:', url);
       console.log('AlertService: Request payload:', { status: 'read' });
       

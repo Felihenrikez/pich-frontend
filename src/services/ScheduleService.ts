@@ -1,9 +1,10 @@
 import axios, { AxiosError } from "axios";
+import { API_BASE_URL } from '../config/api';
 import type { Schedule } from "../models/Schedule.ts";
 
 // Crear una instancia de axios para reutilizar configuración base
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: API_BASE_URL,
   timeout: 10_000, // 10 segundos
 });
 
